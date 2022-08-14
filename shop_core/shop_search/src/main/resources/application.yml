@@ -1,0 +1,36 @@
+server:
+  port: 8001
+spring:
+  elasticsearch:
+    rest:
+      #uris: http://10.211.55.97:9200
+      uris: http://192.168.18.208:9200
+  application:
+    name: shop-search
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.18.208:8848
+  rabbitmq:
+    host: 192.168.18.208
+    port: 5672
+    username: admin
+    password: 123
+    listener:
+      simple:
+        acknowledge-mode: manual
+  redis:
+    host: 192.168.18.208
+    port: 6389
+    database: 0
+    timeout: 1800000
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        readTimeout: 3000
+        connectTimeout: 1000
