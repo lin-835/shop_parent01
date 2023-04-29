@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.ProductSalePropertyKeyMapper">
+
+    <!--构造一个map 平台属性key和value是一对多-->
+    <resultMap id="salePropertyMap" type="com.atguigu.entity.ProductSalePropertyKey" autoMapping="true">
+        <id property="id" column="id"></id>
+        <collection property="salePropertyValueList" ofType="com.atguigu.entity.ProductSalePropertyValue" autoMapping="true">
+            <id property="id" column="sale_property_value_id"></id>
+        </collection>
+    </resultMap>
+
+    <select id="querySalePropertyByProductId" resultMap="salePropertyMap">
+        SELECT
+            a.id,
+            a.product_id,
+            a.sale_property_key_id,
+            a.sale_property_key_name,
+            b.id sale_property_value_id,
+            b.sale_property_value_name
+        FROM
+            product_sale_property_key a
+            INNER JOIN product_sale_property_value b ON a.product_id = b.product_id
+            AND a.sale_property_key_id = b.sale_property_key_id
+        WHERE
+            a.product_id = #{spuId}
+    </select>
+    <select id="getSpuSalePropertyAndSelected" resultMap="salePropertyMap">
+        SELECT
+            a.id,
+            a.product_id,
+            a.sale_property_key_id,
+            a.sale_property_key_name,
+            b.id sale_property_value_id,
+            b.sale_property_value_name,
+        IF
+            ( c.sku_id IS NULL, 0, 1 ) is_selected
+        FROM
+            product_sale_property_key a
+            INNER JOIN product_sale_property_value b ON a.product_id = b.product_id
+            AND a.sale_property_key_id = b.sale_property_key_id
+            LEFT JOIN sku_sale_property_value c ON b.id = c.sale_property_value_id
+            AND c.sku_id = #{skuId}
+        WHERE
+            a.product_id = #{productId}
+        ORDER BY b.sale_property_key_id,b.id
+    </select>
+</mapper>

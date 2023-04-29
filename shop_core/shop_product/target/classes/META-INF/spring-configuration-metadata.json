@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "minio",
+      "type": "com.atguigu.utils.MinioProperties",
+      "sourceType": "com.atguigu.utils.MinioProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "minio.access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.utils.MinioProperties"
+    },
+    {
+      "name": "minio.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.utils.MinioProperties"
+    },
+    {
+      "name": "minio.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.utils.MinioProperties"
+    },
+    {
+      "name": "minio.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.utils.MinioProperties"
+    }
+  ],
+  "hints": []
+}

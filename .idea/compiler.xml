@@ -7,21 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shop_cart" />
-        <module name="shop_common_utils" />
-        <module name="shop_core_utils" />
+        <module name="shop_web_utils" />
+        <module name="ware-manage" />
         <module name="shop_feign_client" />
-        <module name="shop_gateway" />
-        <module name="shop_model" />
+        <module name="shop_user" />
         <module name="shop_order" />
+        <module name="shop_gateway" />
+        <module name="shop_common_utils" />
+        <module name="shop_model" />
         <module name="shop_payment" />
+        <module name="shop_core_utils" />
+        <module name="shop_cart" />
+        <module name="shop_web" />
         <module name="shop_product" />
         <module name="shop_search" />
         <module name="shop_seckill" />
-        <module name="shop_user" />
-        <module name="shop_web" />
-        <module name="shop_web_utils" />
-        <module name="ware-manage" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -34,7 +34,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="shop_cart" options="-parameters" />
       <module name="shop_common_utils" options="-parameters" />
-      <module name="shop_core" options="-parameters" />
+      <module name="shop_core" options="" />
       <module name="shop_core_utils" options="-parameters" />
       <module name="shop_feign_client" options="-parameters" />
       <module name="shop_gateway" options="-parameters" />
@@ -47,7 +47,7 @@
       <module name="shop_search" options="-parameters" />
       <module name="shop_seckill" options="-parameters" />
       <module name="shop_user" options="-parameters" />
-      <module name="shop_utils" options="-parameters" />
+      <module name="shop_utils" options="" />
       <module name="shop_web" options="-parameters" />
       <module name="shop_web_utils" options="-parameters" />
       <module name="springboot_rabbitmq" options="-parameters" />
